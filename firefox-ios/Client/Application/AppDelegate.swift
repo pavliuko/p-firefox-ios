@@ -276,7 +276,7 @@ extension AppDelegate {
         _ application: UIApplication,
         supportedInterfaceOrientationsFor window: UIWindow?
     ) -> UIInterfaceOrientationMask {
-        return self.orientationLock
+        return .portrait
     }
 }
 
