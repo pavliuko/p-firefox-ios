@@ -16,6 +16,7 @@ protocol TabToolbarProtocol: AnyObject {
     var forwardButton: ToolbarButton { get }
     var backButton: ToolbarButton { get }
     var multiStateButton: ToolbarButton { get }
+    var summarizeButton: ToolbarButton { get }
     var actionButtons: [ThemeApplicable & UIButton] { get }
 
     func updateBackStatus(_ canGoBack: Bool)
@@ -42,6 +43,7 @@ protocol TabToolbarDelegate: AnyObject {
     func tabToolbarDidLongPressTabs(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressAddNewTab(_ tabToolbar: TabToolbarProtocol, button: UIButton)
+    func tabToolbarDidPressSummarize(_ tabToolbar: TabToolbarProtocol, button: UIButton)
 }
 
 enum MiddleButtonState {
@@ -169,6 +171,12 @@ open class TabToolbarHelper: NSObject {
         toolbar.bookmarksButton.addTarget(self, action: #selector(didClickLibrary), for: .touchUpInside)
         toolbar.bookmarksButton.accessibilityIdentifier = AccessibilityIdentifiers.Toolbar.bookmarksButton
 
+        let summarizeButtonImage = UIImage(systemName: "sum")
+        toolbar.summarizeButton.setImage(summarizeButtonImage, for: .normal)
+        toolbar.summarizeButton.addTarget(self, action: #selector(didClickSummarize), for: .touchUpInside)
+        toolbar.summarizeButton.showsLargeContentViewer = true
+
+
         // The default long press duration is 0.5.  Here we extend it if
         // UILargeContentViewInteraction is enabled to allow the large content
         // viewer time to display the content
@@ -202,7 +210,11 @@ open class TabToolbarHelper: NSObject {
     }
 
     func didClickTabs() {
-        toolbar.tabToolbarDelegate?.tabToolbarDidPressTabs(toolbar, button: toolbar.tabsButton)
+        toolbar.tabToolbarDelegate?.tabToolbarDidPressTabs(toolbar, button: toolbar.summarizeButton)
+    }
+
+    func didClickSummarize() {
+        toolbar.tabToolbarDelegate?.tabToolbarDidPressSummarize(toolbar, button: toolbar.tabsButton)
     }
 
     func didLongPressTabs(_ recognizer: UILongPressGestureRecognizer) {

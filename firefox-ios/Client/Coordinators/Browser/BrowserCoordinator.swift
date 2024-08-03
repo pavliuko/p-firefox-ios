@@ -733,6 +733,16 @@ class BrowserCoordinator: BaseCoordinator,
         coordinator.startModal()
     }
 
+    // MARK: - Summarize View
+    @MainActor
+    func showSummarizeView() {
+        let summarizeCoordinator = SummarizeCoordinator(router: router, profile: profile)
+
+        add(child: summarizeCoordinator)
+
+        summarizeCoordinator.showSummarizeView()
+    }
+
     // MARK: - ParentCoordinatorDelegate
     func didFinish(from childCoordinator: Coordinator) {
         remove(child: childCoordinator)

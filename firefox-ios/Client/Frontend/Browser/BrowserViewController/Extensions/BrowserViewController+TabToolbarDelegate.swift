@@ -168,6 +168,11 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         )
     }
 
+    func tabToolbarDidPressSummarize(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
+//        focusOnTabSegment()
+        navigationHandler?.showSummarizeView()
+    }
+
     func getTabToolbarLongPressActionsForModeSwitching() -> [PhotonRowActions] {
         guard let selectedTab = tabManager.selectedTab else { return [] }
         let count = selectedTab.isPrivate ? tabManager.normalTabs.count : tabManager.privateTabs.count

@@ -18,6 +18,7 @@ class TabToolbar: UIView, SearchBarLocationProvider {
     let forwardButton = ToolbarButton()
     let backButton = ToolbarButton()
     let multiStateButton = ToolbarButton()
+    let summarizeButton = ToolbarButton()
     let actionButtons: [ThemeApplicable & UIButton]
 
     private let privateModeBadge = BadgeWithBackdrop(
@@ -32,7 +33,15 @@ class TabToolbar: UIView, SearchBarLocationProvider {
 
     // MARK: - Initializers
     override private init(frame: CGRect) {
-        actionButtons = [backButton, forwardButton, multiStateButton, addNewTabButton, tabsButton, appMenuButton]
+        actionButtons = [
+            backButton,
+            forwardButton,
+            multiStateButton,
+            addNewTabButton,
+            tabsButton,
+            appMenuButton,
+            summarizeButton
+        ]
         super.init(frame: frame)
         setupAccessibility()
 

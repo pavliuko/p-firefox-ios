@@ -198,6 +198,7 @@ class URLBarView: UIView, URLBarViewProtocol, AlphaDimmable, TopBottomInterchang
     var addNewTabButton = ToolbarButton()
     var forwardButton = ToolbarButton()
     var multiStateButton = ToolbarButton()
+    var summarizeButton = ToolbarButton()
 
     var backButton: ToolbarButton = {
         let backButton = ToolbarButton()
