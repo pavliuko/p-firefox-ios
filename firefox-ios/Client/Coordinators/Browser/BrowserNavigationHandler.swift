@@ -96,7 +96,7 @@ protocol BrowserNavigationHandler: AnyObject, QRCodeNavigationHandler {
     func showMainMenu()
 
     //// Shows web page summary view
-    func showSummarizeView()
+    func showSummarizeView(content: String)
 }
 
 extension BrowserNavigationHandler {

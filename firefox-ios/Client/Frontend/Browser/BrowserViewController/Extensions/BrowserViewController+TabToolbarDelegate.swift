@@ -2,9 +2,9 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
+import UIKit
 import Common
 import Shared
-import UIKit
 
 extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     // MARK: Data Clearance CFR / Contextual Hint
@@ -17,8 +17,8 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
 
     func configureDataClearanceContextualHint() {
         guard !isToolbarRefactorEnabled,
-                contentContainer.hasWebView,
-                tabManager.selectedTab?.url?.displayURL?.isWebPage() == true
+              contentContainer.hasWebView,
+              tabManager.selectedTab?.url?.displayURL?.isWebPage() == true
         else {
             resetDataClearanceCFRTimer()
             return
@@ -28,8 +28,9 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
             withArrowDirection: topTabsVisible ? .up : .down,
             andDelegate: self,
             presentedUsing: { [weak self] in self?.presentDataClearanceContextualHint() },
-            andActionForButton: { },
-            overlayState: overlayManager)
+            andActionForButton: {},
+            overlayState: overlayManager
+        )
     }
 
     private func presentDataClearanceContextualHint() {
@@ -92,7 +93,8 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     }
 
     /// Setup animation for data clearance flow unless reduce motion is enabled
-    /// - Parameter completion: returns the proper timing to match animation on when to close tabs and display toast
+    /// - Parameter completion: returns the proper timing to match animation on when to close tabs
+    /// and display toast
     private func setupDataClearanceAnimation(completion: @escaping (Double) -> Void) {
         let showAnimation = !UIAccessibility.isReduceMotionEnabled
         let timingToMatchGradientOverlay = showAnimation ? 0.8 : 0.0
@@ -110,8 +112,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         completion(timingToMatchGradientOverlay)
     }
 
-    func tabToolbarDidPressLibrary(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
-    }
+    func tabToolbarDidPressLibrary(_ tabToolbar: TabToolbarProtocol, button: UIButton) {}
 
     func dismissUrlBar() {
         if !isToolbarRefactorEnabled, urlBar.inOverlayMode {
@@ -169,38 +170,49 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     }
 
     func tabToolbarDidPressSummarize(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
-//        focusOnTabSegment()
-        navigationHandler?.showSummarizeView()
+        guard let webView = tabManager.selectedTab?.currentWebView() else {
+            return
+        }
+
+        HTMLContentOverviewProvider.invoke(on: webView) { [weak navigationHandler] result in
+            if case let .success(content) = result {
+                navigationHandler?.showSummarizeView(content: content)
+            }
+        }
     }
 
     func getTabToolbarLongPressActionsForModeSwitching() -> [PhotonRowActions] {
         guard let selectedTab = tabManager.selectedTab else { return [] }
-        let count = selectedTab.isPrivate ? tabManager.normalTabs.count : tabManager.privateTabs.count
+        let count = selectedTab.isPrivate ? tabManager.normalTabs.count : tabManager.privateTabs
+            .count
         let infinity = "\u{221E}"
         let tabCount = (count < 100) ? count.description : infinity
 
         func action() {
             let result = tabManager.switchPrivacyMode()
-            if result == .createdNewTab, self.newTabSettings == .blankPage {
+            if result == .createdNewTab, newTabSettings == .blankPage {
                 focusLocationTextField(forTab: tabManager.selectedTab)
             }
         }
 
-        let privateBrowsingMode = SingleActionViewModel(title: .KeyboardShortcuts.PrivateBrowsingMode,
-                                                        iconString: StandardImageIdentifiers.Large.tab,
-                                                        iconType: .TabsButton,
-                                                        tabCount: tabCount) { _ in
+        let privateBrowsingMode = SingleActionViewModel(
+            title: .KeyboardShortcuts.PrivateBrowsingMode,
+            iconString: StandardImageIdentifiers.Large.tab,
+            iconType: .TabsButton,
+            tabCount: tabCount
+        ) { _ in
             action()
         }.items
 
         let normalBrowsingMode = SingleActionViewModel(title: .KeyboardShortcuts.NormalBrowsingMode,
-                                                       iconString: StandardImageIdentifiers.Large.tab,
+                                                       iconString: StandardImageIdentifiers.Large
+                                                           .tab,
                                                        iconType: .TabsButton,
                                                        tabCount: tabCount) { _ in
             action()
         }.items
 
-        if let tab = self.tabManager.selectedTab {
+        if let tab = tabManager.selectedTab {
             return tab.isPrivate ? [normalBrowsingMode] : [privateBrowsingMode]
         }
         return [privateBrowsingMode]
@@ -221,7 +233,12 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
             let shouldFocusLocationField = self.newTabSettings == .blankPage
             self.overlayManager.openNewTab(url: nil, newTabSettings: self.newTabSettings)
             self.openBlankNewTab(focusLocationField: shouldFocusLocationField, isPrivate: true)
-            TelemetryWrapper.recordEvent(category: .action, method: .tap, object: .newPrivateTab, value: .tabTray)
+            TelemetryWrapper.recordEvent(
+                category: .action,
+                method: .tap,
+                object: .newPrivateTab,
+                value: .tabTray
+            )
         }.items
 
         let closeTab = SingleActionViewModel(title: .KeyboardShortcuts.CloseCurrentTab,
@@ -230,11 +247,14 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
             if let tab = self.tabManager.selectedTab {
                 self.tabManager.removeTab(tab)
                 self.updateTabCountUsingTabManager(self.tabManager)
-                self.showToast(message: .TabsTray.CloseTabsToast.SingleTabTitle, toastAction: .closeTab)
+                self.showToast(
+                    message: .TabsTray.CloseTabsToast.SingleTabTitle,
+                    toastAction: .closeTab
+                )
             }
         }.items
 
-        if let tab = self.tabManager.selectedTab {
+        if let tab = tabManager.selectedTab {
             return tab.isPrivate ? [newPrivateTab, closeTab] : [newTab, closeTab]
         }
         return [newTab, closeTab]
@@ -262,7 +282,12 @@ extension BrowserViewController: ToolBarActionMenuDelegate, UIDocumentPickerDele
         presentWithModalDismissIfNeeded(viewController, animated: true)
     }
 
-    func showToast(_ bookmarkURL: URL? = nil, _ title: String?, message: String, toastAction: MenuButtonToastAction) {
+    func showToast(
+        _ bookmarkURL: URL? = nil,
+        _ title: String?,
+        message: String,
+        toastAction: MenuButtonToastAction
+    ) {
         switch toastAction {
         case .bookmarkPage:
             let viewModel = ButtonToastViewModel(labelText: message,
@@ -272,7 +297,7 @@ extension BrowserViewController: ToolBarActionMenuDelegate, UIDocumentPickerDele
                                     theme: currentTheme()) { isButtonTapped in
                 isButtonTapped ? self.openBookmarkEditPanel() : nil
             }
-            self.show(toast: toast)
+            show(toast: toast)
         case .removeBookmark:
             let viewModel = ButtonToastViewModel(labelText: message,
                                                  buttonText: .UndoString,
@@ -293,8 +318,8 @@ extension BrowserViewController: ToolBarActionMenuDelegate, UIDocumentPickerDele
             let toast = ButtonToast(viewModel: viewModel,
                                     theme: currentTheme()) { [weak self] isButtonTapped in
                 guard let self,
-                        tabManager.backupCloseTab != nil,
-                        isButtonTapped
+                      tabManager.backupCloseTab != nil,
+                      isButtonTapped
                 else { return }
                 self.tabManager.undoCloseTab()
             }
@@ -332,7 +357,10 @@ extension BrowserViewController: ToolBarActionMenuDelegate, UIDocumentPickerDele
                                     referringPage: fxaParameters.referringPage)
     }
 
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+    func documentPicker(
+        _ controller: UIDocumentPickerViewController,
+        didPickDocumentsAt urls: [URL]
+    ) {
         if !urls.isEmpty {
             showToast(message: .AppMenu.AppMenuDownloadPDFConfirmMessage, toastAction: .downloadPDF)
         }

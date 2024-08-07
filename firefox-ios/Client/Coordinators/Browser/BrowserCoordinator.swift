@@ -735,8 +735,12 @@ class BrowserCoordinator: BaseCoordinator,
 
     // MARK: - Summarize View
     @MainActor
-    func showSummarizeView() {
-        let summarizeCoordinator = SummarizeCoordinator(router: router, profile: profile)
+    func showSummarizeView(content: String) {
+        let summarizeCoordinator = SummarizeCoordinator(
+            router: router,
+            profile: profile,
+            currentWebPageContent: content
+        )
 
         add(child: summarizeCoordinator)
 

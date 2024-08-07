@@ -8,17 +8,22 @@ import ComponentLibrary
 
 class SummarizeCoordinator: BaseCoordinator {
     private let profile: Profile
+    private let currentWebPageContent: String
 
-    init(router: Router, profile: Profile) {
+    init(router: Router, profile: Profile, currentWebPageContent: String) {
         self.profile = profile
+        self.currentWebPageContent = currentWebPageContent
         super.init(router: router)
     }
 
     @MainActor
     func showSummarizeView() {
-        let view = SummarizeView()
+        let view = SummarizeView(vm: SummarizeViewModel(source: currentWebPageContent))
 
         let viewController = SelfSizingHostingController(rootView: view)
+        viewController.controllerWillDismiss = {
+            view.stop()
+        }
 
         var bottomSheetViewModel = BottomSheetViewModel(
             closeButtonA11yLabel: .CloseButtonTitle,
