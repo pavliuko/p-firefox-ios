@@ -33,12 +33,12 @@ struct SummarizeView: View {
                 Text("Here is the summary for you:")
             }
 
-            if let summary = vm.state.summary {
+            if !vm.state.summary.isEmpty {
                 if #available(iOS 16.4, *) {
-                    Text(summary)
+                    Text(vm.state.summary)
                         .monospaced()
                 } else {
-                    Text(summary)
+                    Text(vm.state.summary)
                 }
             }
 
