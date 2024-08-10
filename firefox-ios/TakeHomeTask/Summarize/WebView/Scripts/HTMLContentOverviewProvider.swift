@@ -6,6 +6,11 @@ import WebKit
 import Foundation
 
 enum HTMLContentOverviewProvider {
+    enum Error: Swift.Error {
+        case extractionError
+        case webViewError(Swift.Error)
+    }
+
     private static let script = """
     function extractAndCombineText() {
         // Function to extract text from elements
@@ -49,20 +54,12 @@ enum HTMLContentOverviewProvider {
         completion: @escaping (Result<String, Error>) -> Void
     ) {
         webView.evaluateJavaScript(script) { result, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-
-            if let content = result as? String {
+            if let error {
+                completion(.failure(Error.webViewError(error)))
+            } else if let content = result as? String {
                 completion(.success(content))
             } else {
-                let extractionError = NSError(
-                    domain: "HTMLContentSummaryError",
-                    code: -1,
-                    userInfo: [NSLocalizedDescriptionKey: "Failed to extract content."]
-                )
-                completion(.failure(extractionError))
+                completion(.failure(Error.extractionError))
             }
         }
     }

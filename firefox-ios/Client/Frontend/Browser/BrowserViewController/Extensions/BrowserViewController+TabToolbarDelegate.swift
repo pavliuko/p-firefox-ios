@@ -170,11 +170,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     }
 
     func tabToolbarDidPressSummarize(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
-        guard let webView = tabManager.selectedTab?.currentWebView() else {
-            return
-        }
-
-        HTMLContentOverviewProvider.invoke(on: webView) { [weak navigationHandler] result in
+        getSourceForWebPageSummaryMaking { [weak navigationHandler] result in
             if case let .success(content) = result {
                 navigationHandler?.showSummarizeView(content: content)
             }
