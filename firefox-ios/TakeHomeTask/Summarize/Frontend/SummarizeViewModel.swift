@@ -13,15 +13,14 @@ struct SummarizeState {
 
     var modelDownloadingState: ModelDownloading = .inProgress(progress: 0)
     var inProgress: Bool = false
-    var summary: String? = .none
+    var summary: String = .init()
 }
 
 @MainActor
 class SummarizeViewModel: ObservableObject {
     @Published var state: SummarizeState
-    @Published var llm: LLMClient?
+    @Published var llm: SummarizeWebPageLLMAgent?
 
-    private var cancellable: AnyCancellable?
     let source: String
 
     init(state: SummarizeState = .init(), source: String) {
@@ -29,54 +28,57 @@ class SummarizeViewModel: ObservableObject {
         self.source = source
     }
 
+    @MainActor
     func start() async {
-        let llm = await LLMClient { [weak self] progress in
-            self?.setLLMModelDownloadProgress(progress: progress)
-        }
-        setLLMModelDownloadingDone()
+        do {
+            llm = try await SummarizeWebPageLLMAgent { progress in
+                Task { @MainActor [weak self] in
+                    self?.setLLMModelDownloadProgress(progress: progress)
+                }
+            }
+            llm?.update = { delta in
+                Task { @MainActor [weak self] in
+                    self?.updateSummary(with: delta)
+                }
+            }
+            setLLMModelDownloadingDone()
 
-        await MainActor.run {
-            self.llm = llm
-            self.cancellable = self.llm?.$output
-                .sink(
-                    receiveValue: { [weak self] newOutput in
-                        self?.state.summary = newOutput
-                    }
-                )
-        }
+            setLLMSummaryRequestedState()
 
-        setLLMSummaryRequestedState()
-        await self.llm?.respond(to: source)
-        setLLMModelRespond()
+            await llm?.respond(to: source)
+
+            setLLMModelRespond()
+        } catch {
+            print("Failed to start LLM agent: \(error)")
+        }
     }
 
     func stop() {
         llm?.stop()
     }
-
-    deinit {
-        cancellable?.cancel()
-    }
 }
 
+// MARK: Work with view state
 private extension SummarizeViewModel {
-    @MainActor
     func setLLMModelDownloadProgress(progress: Double) {
         state.modelDownloadingState = .inProgress(progress: CGFloat(progress))
     }
 
-    @MainActor
     func setLLMModelDownloadingDone() {
         state.modelDownloadingState = .done
     }
 
-    @MainActor
     func setLLMSummaryRequestedState() {
         state.inProgress = true
+        state.summary = .init()
     }
 
-    @MainActor
     func setLLMModelRespond() {
         state.inProgress = false
+    }
+
+    func updateSummary(with delta: String?) {
+        let delta = delta ?? .init()
+        state.summary += delta
     }
 }

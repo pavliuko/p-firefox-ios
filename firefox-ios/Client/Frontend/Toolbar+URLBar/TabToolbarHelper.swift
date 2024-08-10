@@ -176,7 +176,6 @@ open class TabToolbarHelper: NSObject {
         toolbar.summarizeButton.addTarget(self, action: #selector(didClickSummarize), for: .touchUpInside)
         toolbar.summarizeButton.showsLargeContentViewer = true
 
-
         // The default long press duration is 0.5.  Here we extend it if
         // UILargeContentViewInteraction is enabled to allow the large content
         // viewer time to display the content
