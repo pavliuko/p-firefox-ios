@@ -549,6 +549,7 @@
 		634D63CB2C67C96000EEA661 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63CA2C67C96000EEA661 /* WalletView.swift */; };
 		634D63CD2C67C96E00EEA661 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63CC2C67C96E00EEA661 /* WalletViewModel.swift */; };
 		634D63D02C67CC0F00EEA661 /* WalletCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63CF2C67CC0F00EEA661 /* WalletCoordinator.swift */; };
+		634D63D32C67D32F00EEA661 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 634D63D22C67D32F00EEA661 /* web3swift */; };
 		63DE1ECC2C63AFD2009807DB /* HTMLContentOverviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */; };
 		63DE1ECF2C63D068009807DB /* WindowAIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE1ECE2C63D068009807DB /* WindowAIHelper.swift */; };
 		6669B5E2211418A200CA117B /* WebsiteDataSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6669B5E1211418A200CA117B /* WebsiteDataSearchResultsViewController.swift */; };
@@ -8584,6 +8585,7 @@
 				E17798A02BD8043800F6F0EB /* ToolbarKit in Frameworks */,
 				E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */,
 				E4B3348A1BBF23F9004E2BFF /* AdSupport.framework in Frameworks */,
+				634D63D32C67D32F00EEA661 /* web3swift in Frameworks */,
 				8AB30EC82B6C038600BD9A9B /* Lottie in Frameworks */,
 				5A871488292EA1440039A5BD /* Fuzi in Frameworks */,
 				432BD0242790EBD000A0F3C3 /* Adjust in Frameworks */,
@@ -13417,6 +13419,7 @@
 				AB2AC6622BCFD0A200022AAB /* X509 */,
 				E177989F2BD8043800F6F0EB /* ToolbarKit */,
 				6341CEEA2C5FF07C0046740B /* LLM */,
+				634D63D22C67D32F00EEA661 /* web3swift */,
 			);
 			productName = Client;
 			productReference = F84B21BE1A090F8100AAB793 /* Client.app */;
@@ -13738,6 +13741,7 @@
 				8AB30EC62B6C038600BD9A9B /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				AB2AC6612BCFD0A200022AAB /* XCRemoteSwiftPackageReference "swift-certificates" */,
 				6341CEE92C5FF07C0046740B /* XCRemoteSwiftPackageReference "LLM" */,
+				634D63D12C67D32F00EEA661 /* XCRemoteSwiftPackageReference "web3swift" */,
 			);
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
 			projectDirPath = "";
@@ -23134,6 +23138,14 @@
 				kind = branch;
 			};
 		};
+		634D63D12C67D32F00EEA661 /* XCRemoteSwiftPackageReference "web3swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/web3swift-team/web3swift?tab=readme-ov-file#spm";
+			requirement = {
+				kind = exactVersion;
+				version = 3.2.1;
+			};
+		};
 		8AB30EC62B6C038600BD9A9B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -23294,6 +23306,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6341CEE92C5FF07C0046740B /* XCRemoteSwiftPackageReference "LLM" */;
 			productName = LLM;
+		};
+		634D63D22C67D32F00EEA661 /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 634D63D12C67D32F00EEA661 /* XCRemoteSwiftPackageReference "web3swift" */;
+			productName = web3swift;
 		};
 		781C19CE2A780BEC0000DF46 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
