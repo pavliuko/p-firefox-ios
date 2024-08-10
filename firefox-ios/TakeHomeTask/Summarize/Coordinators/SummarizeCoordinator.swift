@@ -7,11 +7,9 @@ import SwiftUI
 import ComponentLibrary
 
 class SummarizeCoordinator: BaseCoordinator {
-    private let profile: Profile
     private let currentWebPageContent: String
 
-    init(router: Router, profile: Profile, currentWebPageContent: String) {
-        self.profile = profile
+    init(router: Router, currentWebPageContent: String) {
         self.currentWebPageContent = currentWebPageContent
         super.init(router: router)
     }

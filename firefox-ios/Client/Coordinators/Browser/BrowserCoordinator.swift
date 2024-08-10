@@ -738,13 +738,24 @@ class BrowserCoordinator: BaseCoordinator,
     func showSummarizeView(content: String) {
         let summarizeCoordinator = SummarizeCoordinator(
             router: router,
-            profile: profile,
             currentWebPageContent: content
         )
 
         add(child: summarizeCoordinator)
 
         summarizeCoordinator.showSummarizeView()
+    }
+
+    // MARK: - Wallet
+    @MainActor
+    func showWallet() {
+        let coordinator = WalletCoordinator(
+            router: router
+        )
+
+        add(child: coordinator)
+
+        coordinator.showWalletView()
     }
 
     // MARK: - ParentCoordinatorDelegate

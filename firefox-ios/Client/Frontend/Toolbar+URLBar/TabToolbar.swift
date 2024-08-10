@@ -19,6 +19,7 @@ class TabToolbar: UIView, SearchBarLocationProvider {
     let backButton = ToolbarButton()
     let multiStateButton = ToolbarButton()
     let summarizeButton = ToolbarButton()
+    let walletButton = ToolbarButton()
     let actionButtons: [ThemeApplicable & UIButton]
 
     private let privateModeBadge = BadgeWithBackdrop(
@@ -40,7 +41,8 @@ class TabToolbar: UIView, SearchBarLocationProvider {
             addNewTabButton,
             tabsButton,
             appMenuButton,
-            summarizeButton
+            summarizeButton,
+            walletButton
         ]
         super.init(frame: frame)
         setupAccessibility()

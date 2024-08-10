@@ -546,6 +546,9 @@
 		6341CEE82C5FEF570046740B /* LLMAgents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341CEE72C5FEF560046740B /* LLMAgents.swift */; };
 		6341CEEB2C5FF07C0046740B /* LLM in Frameworks */ = {isa = PBXBuildFile; productRef = 6341CEEA2C5FF07C0046740B /* LLM */; };
 		634D63C62C67AAEC00EEA661 /* WindowAIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63C52C67AAEC00EEA661 /* WindowAIAPI.swift */; };
+		634D63CB2C67C96000EEA661 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63CA2C67C96000EEA661 /* WalletView.swift */; };
+		634D63CD2C67C96E00EEA661 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63CC2C67C96E00EEA661 /* WalletViewModel.swift */; };
+		634D63D02C67CC0F00EEA661 /* WalletCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63CF2C67CC0F00EEA661 /* WalletCoordinator.swift */; };
 		63DE1ECC2C63AFD2009807DB /* HTMLContentOverviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */; };
 		63DE1ECF2C63D068009807DB /* WindowAIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE1ECE2C63D068009807DB /* WindowAIHelper.swift */; };
 		6669B5E2211418A200CA117B /* WebsiteDataSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6669B5E1211418A200CA117B /* WebsiteDataSearchResultsViewController.swift */; };
@@ -5938,6 +5941,9 @@
 		6341CEE42C5FEA680046740B /* SummarizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeViewModel.swift; sourceTree = "<group>"; };
 		6341CEE72C5FEF560046740B /* LLMAgents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMAgents.swift; sourceTree = "<group>"; };
 		634D63C52C67AAEC00EEA661 /* WindowAIAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAIAPI.swift; sourceTree = "<group>"; };
+		634D63CA2C67C96000EEA661 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		634D63CC2C67C96E00EEA661 /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
+		634D63CF2C67CC0F00EEA661 /* WalletCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinator.swift; sourceTree = "<group>"; };
 		63B04BE882C41584580E0E59 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = "fa.lproj/Default Browser.strings"; sourceTree = "<group>"; };
 		63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLContentOverviewProvider.swift; sourceTree = "<group>"; };
 		63DE1ECE2C63D068009807DB /* WindowAIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAIHelper.swift; sourceTree = "<group>"; };
@@ -9781,6 +9787,7 @@
 		6341CECF2C5C0FF50046740B /* TakeHomeTask */ = {
 			isa = PBXGroup;
 			children = (
+				634D63C82C67C92F00EEA661 /* Wallet */,
 				63DE1ECD2C63D054009807DB /* WindowAI */,
 				6341CEE62C5FEF310046740B /* LLM */,
 				6341CED92C5E7CB70046740B /* Summarize */,
@@ -9838,6 +9845,32 @@
 				634D63C52C67AAEC00EEA661 /* WindowAIAPI.swift */,
 			);
 			path = TabContentsScripts;
+			sourceTree = "<group>";
+		};
+		634D63C82C67C92F00EEA661 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				634D63CE2C67CBFF00EEA661 /* Coordinators */,
+				634D63C92C67C94800EEA661 /* Frontend */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		634D63C92C67C94800EEA661 /* Frontend */ = {
+			isa = PBXGroup;
+			children = (
+				634D63CA2C67C96000EEA661 /* WalletView.swift */,
+				634D63CC2C67C96E00EEA661 /* WalletViewModel.swift */,
+			);
+			path = Frontend;
+			sourceTree = "<group>";
+		};
+		634D63CE2C67CBFF00EEA661 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				634D63CF2C67CC0F00EEA661 /* WalletCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		63DE1EC92C63AF91009807DB /* WebView */ = {
@@ -14646,6 +14679,7 @@
 				5A9F83422B2B796800272819 /* TabPeekState.swift in Sources */,
 				E1877A832875DEDE00F5BDF2 /* SyncedTabCell.swift in Sources */,
 				21E77E522AA8BE5C00FABA10 /* TabTrayFlagManager.swift in Sources */,
+				634D63CD2C67C96E00EEA661 /* WalletViewModel.swift in Sources */,
 				CA8226F324C11DB7008A6F38 /* PasswordManagerTableViewCell.swift in Sources */,
 				8A0A1BA02B2200FD00E8706F /* PrivateHomepageViewController.swift in Sources */,
 				E4A960061ABB9C450069AD6F /* ReaderModeUtils.swift in Sources */,
@@ -15020,6 +15054,7 @@
 				96EB6C3E27D9266500A9D159 /* HistoryActionables.swift in Sources */,
 				8C6F94662A972EB300415FF6 /* FakespotStarRatingView.swift in Sources */,
 				C4F3B29A1CFCF93A00966259 /* ButtonToast.swift in Sources */,
+				634D63CB2C67C96000EEA661 /* WalletView.swift in Sources */,
 				1D7B78972ADF32590011E9F2 /* EventQueue.swift in Sources */,
 				0AD3EEAC2C2485A7001044E5 /* ThemedCenteredTableViewCell.swift in Sources */,
 				C81B78A4280752A20000C15F /* NimbusFeatureFlagLayer.swift in Sources */,
@@ -15161,6 +15196,7 @@
 				21618A612A4201E500A5189E /* ThemeSettingsController.swift in Sources */,
 				21357F2D293FDB60004BF9FD /* LegacyRemoteTabsErrorDataSource.swift in Sources */,
 				D34DC8531A16C40C00D49B7B /* Profile.swift in Sources */,
+				634D63D02C67CC0F00EEA661 /* WalletCoordinator.swift in Sources */,
 				DFACDFAA274D489B00A94EEC /* HistoryHighlightsViewModel.swift in Sources */,
 				C84655FF2887A06B00861B4A /* WallpaperFilePathProvider.swift in Sources */,
 				8A1E93EA2A3CDC6100DD540A /* BaseCoordinator.swift in Sources */,

@@ -199,6 +199,7 @@ class URLBarView: UIView, URLBarViewProtocol, AlphaDimmable, TopBottomInterchang
     var forwardButton = ToolbarButton()
     var multiStateButton = ToolbarButton()
     var summarizeButton = ToolbarButton()
+    var walletButton = ToolbarButton()
 
     var backButton: ToolbarButton = {
         let backButton = ToolbarButton()
@@ -709,6 +710,7 @@ class URLBarView: UIView, URLBarViewProtocol, AlphaDimmable, TopBottomInterchang
 }
 
 extension URLBarView: TabToolbarProtocol {
+
     func privateModeBadge(visible: Bool) {
         if UIDevice.current.userInterfaceIdiom != .pad {
             privateModeBadge.show(visible)
