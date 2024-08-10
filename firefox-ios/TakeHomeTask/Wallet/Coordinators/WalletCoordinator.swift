@@ -12,8 +12,18 @@ class WalletCoordinator: BaseCoordinator {
     }
 
     @MainActor
-    func showWalletView() {
-        let view = WalletView(vm: WalletViewModel())
+    func showWalletView(callback: @escaping (URL?) -> Void) {
+        let view = WalletsHomeView.walletsHomeViewWithNavigation(
+            vm: WalletsHomeViewModel(),
+            callback: { [weak router] url in
+                router?.dismiss(
+                    animated: true,
+                    completion: {
+                        callback(url)
+                    }
+                )
+            }
+        )
 
         let viewController = UIHostingController(rootView: view)
 

@@ -178,8 +178,9 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     }
 
     func tabToolbarDidPressWallet(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
-        navigationHandler?.showWallet()
-
+        navigationHandler?.showWallet { [weak self] url in
+            self?.openURLInNewTab(url)
+        }
     }
 
     func getTabToolbarLongPressActionsForModeSwitching() -> [PhotonRowActions] {

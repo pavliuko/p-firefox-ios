@@ -10,10 +10,10 @@ final class SummarizeWebPageLLMAgent: LLM {
         try await self.init(
             from: .init(
                 "TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF",
-                .Q2_K,
+                .Q3_K_S,
                 template: .chatML("Can you explain what this website is? Up to 50 words in length.")
             ),
-            as: "tinyllama-1.1b-chat-v1.0.Q2_K.gguf",
+            as: "tinyllama-1.1b-chat-v1.0.Q4_K_S.gguf",
             maxTokenCount: 1024,
             updateProgress: progressCallback
         )

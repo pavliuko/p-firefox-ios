@@ -99,7 +99,7 @@ protocol BrowserNavigationHandler: AnyObject, QRCodeNavigationHandler {
     func showSummarizeView(content: String)
 
     //// Shows wallet
-    func showWallet()
+    func showWallet(callback: @escaping (URL?) -> Void)
 }
 
 extension BrowserNavigationHandler {
