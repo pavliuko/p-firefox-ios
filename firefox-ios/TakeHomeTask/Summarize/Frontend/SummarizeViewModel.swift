@@ -58,6 +58,7 @@ class SummarizeViewModel: ObservableObject {
     }
 }
 
+// MARK: Work with view state
 private extension SummarizeViewModel {
     func setLLMModelDownloadProgress(progress: Double) {
         state.modelDownloadingState = .inProgress(progress: CGFloat(progress))

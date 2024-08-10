@@ -29,22 +29,7 @@ class UserScriptManager: FeatureFlaggable {
         forMainFrameOnly: false
     )
 
-    private let aiHelperUserScript = WKUserScript.createInPageContentWorld(
-        source: """
-        var ai = {
-            prompt: function(payload) {
-                window.webkit.messageHandlers.aiHandler.postMessage({ function: 'prompt', payload: payload });
-            },
-            createTextSession: function(systemPrompt) {
-                window.webkit.messageHandlers.aiHandler.postMessage({ function: 'createTextSession', systemPrompt: systemPrompt });
-            }
-        };
-
-        window.ai = ai;
-        """,
-        injectionTime: .atDocumentEnd,
-        forMainFrameOnly: false
-    )
+    private let windowAiAPIUserScript = WindowAIAPI()
 
     private init() {
         var compiledUserScripts: [String: WKUserScript] = [:]
@@ -162,6 +147,7 @@ class UserScriptManager: FeatureFlaggable {
             webView?.configuration.userContentController.addUserScript(noImageModeUserScript)
         }
 
-        webView?.configuration.userContentController.addUserScript(aiHelperUserScript)
+        // Inject the `window.ai` object. This is used to communicate with local LLM models.
+        webView?.configuration.userContentController.addUserScript(windowAiAPIUserScript)
     }
 }

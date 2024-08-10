@@ -544,6 +544,7 @@
 		6341CEE52C5FEA680046740B /* SummarizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341CEE42C5FEA680046740B /* SummarizeViewModel.swift */; };
 		6341CEE82C5FEF570046740B /* LLMAgents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341CEE72C5FEF560046740B /* LLMAgents.swift */; };
 		6341CEEB2C5FF07C0046740B /* LLM in Frameworks */ = {isa = PBXBuildFile; productRef = 6341CEEA2C5FF07C0046740B /* LLM */; };
+		634D63C62C67AAEC00EEA661 /* WindowAIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63C52C67AAEC00EEA661 /* WindowAIAPI.swift */; };
 		63DE1ECC2C63AFD2009807DB /* HTMLContentOverviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */; };
 		63DE1ECF2C63D068009807DB /* WindowAIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE1ECE2C63D068009807DB /* WindowAIHelper.swift */; };
 		6669B5E2211418A200CA117B /* WebsiteDataSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6669B5E1211418A200CA117B /* WebsiteDataSearchResultsViewController.swift */; };
@@ -5934,6 +5935,7 @@
 		6341CEE22C5E7D200046740B /* SummarizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeView.swift; sourceTree = "<group>"; };
 		6341CEE42C5FEA680046740B /* SummarizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeViewModel.swift; sourceTree = "<group>"; };
 		6341CEE72C5FEF560046740B /* LLMAgents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMAgents.swift; sourceTree = "<group>"; };
+		634D63C52C67AAEC00EEA661 /* WindowAIAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAIAPI.swift; sourceTree = "<group>"; };
 		63B04BE882C41584580E0E59 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = "fa.lproj/Default Browser.strings"; sourceTree = "<group>"; };
 		63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLContentOverviewProvider.swift; sourceTree = "<group>"; };
 		63DE1ECE2C63D068009807DB /* WindowAIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAIHelper.swift; sourceTree = "<group>"; };
@@ -9810,6 +9812,15 @@
 			path = LLM;
 			sourceTree = "<group>";
 		};
+		634D63C72C67AD2A00EEA661 /* TabContentsScripts */ = {
+			isa = PBXGroup;
+			children = (
+				63DE1ECE2C63D068009807DB /* WindowAIHelper.swift */,
+				634D63C52C67AAEC00EEA661 /* WindowAIAPI.swift */,
+			);
+			path = TabContentsScripts;
+			sourceTree = "<group>";
+		};
 		63DE1EC92C63AF91009807DB /* WebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -9829,7 +9840,7 @@
 		63DE1ECD2C63D054009807DB /* WindowAI */ = {
 			isa = PBXGroup;
 			children = (
-				63DE1ECE2C63D068009807DB /* WindowAIHelper.swift */,
+				634D63C72C67AD2A00EEA661 /* TabContentsScripts */,
 			);
 			path = WindowAI;
 			sourceTree = "<group>";
@@ -15056,6 +15067,7 @@
 				39455F771FC83F430088A22C /* TabEventHandler.swift in Sources */,
 				8A36BE2929EDBC6900AC1C5C /* ContentContainer.swift in Sources */,
 				215B458227DA420400E5E800 /* LegacyTabMetadataManager.swift in Sources */,
+				634D63C62C67AAEC00EEA661 /* WindowAIAPI.swift in Sources */,
 				E47616C71AB74CA600E7DD25 /* ReaderModeBarView.swift in Sources */,
 				D821E90E2141B71C00452C55 /* SiriSettingsViewController.swift in Sources */,
 				EBB89507219398E500EB91A0 /* ContentBlocker.swift in Sources */,
