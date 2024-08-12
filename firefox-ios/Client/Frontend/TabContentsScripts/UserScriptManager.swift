@@ -16,18 +16,15 @@ class UserScriptManager: FeatureFlaggable {
     private let noImageModeUserScript = WKUserScript.createInDefaultContentWorld(
         source: "window.__firefox__.NoImageMode.setEnabled(true)",
         injectionTime: .atDocumentStart,
-        forMainFrameOnly: true
-    )
+        forMainFrameOnly: true)
     private let nightModeUserScript = WKUserScript.createInDefaultContentWorld(
         source: "window.__firefox__.NightMode.setEnabled(true)",
         injectionTime: .atDocumentStart,
-        forMainFrameOnly: true
-    )
+        forMainFrameOnly: true)
     private let printHelperUserScript = WKUserScript.createInPageContentWorld(
         source: "window.print = function () { window.webkit.messageHandlers.printHandler.postMessage({}) }",
         injectionTime: .atDocumentEnd,
-        forMainFrameOnly: false
-    )
+        forMainFrameOnly: false)
 
     private let windowAiAPIUserScript = WindowAIAPI()
 
@@ -45,12 +42,8 @@ class UserScriptManager: FeatureFlaggable {
             let injectionString = injectionTime == .atDocumentStart ? "Start" : "End"
             let name = mainframeString + "AtDocument" + injectionString
             if let path = Bundle.main.path(forResource: name, ofType: "js"),
-               let source = try? NSString(
-                   contentsOfFile: path,
-                   encoding: String.Encoding.utf8.rawValue
-               ) as String {
-                let wrappedSource =
-                    "(function() { const APP_ID_TOKEN = '\(UserScriptManager.appIdToken)'; \(source) })()"
+                let source = try? NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue) as String {
+                let wrappedSource = "(function() { const APP_ID_TOKEN = '\(UserScriptManager.appIdToken)'; \(source) })()"
                 let userScript = WKUserScript.createInDefaultContentWorld(
                     source: wrappedSource,
                     injectionTime: injectionTime,
@@ -62,19 +55,15 @@ class UserScriptManager: FeatureFlaggable {
             // Autofill scripts
             let autofillName = "Autofill\(name)"
             if let autofillScriptCompatPath = Bundle.main.path(
-                forResource: autofillName, ofType: "js"
-            ),
+                forResource: autofillName, ofType: "js"),
                 let source = try? NSString(
                     contentsOfFile: autofillScriptCompatPath,
-                    encoding: String.Encoding.utf8.rawValue
-                ) as String {
-                let wrappedSource =
-                    "(function() { const APP_ID_TOKEN = '\(UserScriptManager.appIdToken)'; \(source) })()"
+                    encoding: String.Encoding.utf8.rawValue) as String {
+                let wrappedSource = "(function() { const APP_ID_TOKEN = '\(UserScriptManager.appIdToken)'; \(source) })()"
                 let userScript = WKUserScript.createInDefaultContentWorld(
                     source: wrappedSource,
                     injectionTime: injectionTime,
-                    forMainFrameOnly: mainFrameOnly
-                )
+                    forMainFrameOnly: mainFrameOnly)
                 compiledUserScripts[autofillName] = userScript
             }
 
@@ -83,12 +72,11 @@ class UserScriptManager: FeatureFlaggable {
                 forResource: webcompatName,
                 ofType: "js"
             ),
-                let source = try? NSString(
-                    contentsOfFile: webCompatPath,
-                    encoding: String.Encoding.utf8.rawValue
-                ) as String {
-                let wrappedSource =
-                    "(function() { const APP_ID_TOKEN = '\(UserScriptManager.appIdToken)'; \(source) })()"
+               let source = try? NSString(
+                contentsOfFile: webCompatPath,
+                encoding: String.Encoding.utf8.rawValue
+               ) as String {
+                let wrappedSource = "(function() { const APP_ID_TOKEN = '\(UserScriptManager.appIdToken)'; \(source) })()"
                 let userScript = WKUserScript.createInPageContentWorld(
                     source: wrappedSource,
                     injectionTime: injectionTime,
@@ -101,11 +89,7 @@ class UserScriptManager: FeatureFlaggable {
         self.compiledUserScripts = compiledUserScripts
     }
 
-    public func injectUserScriptsIntoWebView(
-        _ webView: WKWebView?,
-        nightMode: Bool,
-        noImageMode: Bool
-    ) {
+    public func injectUserScriptsIntoWebView(_ webView: WKWebView?, nightMode: Bool, noImageMode: Bool) {
         // Start off by ensuring that any previously-added user scripts are
         // removed to prevent the same script from being injected twice.
         webView?.configuration.userContentController.removeAllUserScripts()
@@ -133,8 +117,7 @@ class UserScriptManager: FeatureFlaggable {
                 webView?.configuration.userContentController.addUserScript(webcompatUserScript)
             }
         }
-        // Inject the Print Helper. This needs to be in the `page` content world in order to hook
-        // `window.print()`.
+        // Inject the Print Helper. This needs to be in the `page` content world in order to hook `window.print()`.
         webView?.configuration.userContentController.addUserScript(printHelperUserScript)
         // If Night Mode is enabled, inject a small user script to ensure
         // that it gets enabled immediately when the DOM loads.
