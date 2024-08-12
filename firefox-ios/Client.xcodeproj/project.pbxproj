@@ -539,12 +539,12 @@
 		60CE80C12667780D004026C7 /* CredentialListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE80C02667780C004026C7 /* CredentialListPresenter.swift */; };
 		60D71AEC26AAF45E00355588 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D71AEB26AAF45E00355588 /* UIColorExtension.swift */; };
 		63306D3921103EAE00F25400 /* LegacySavedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63306D3821103EAE00F25400 /* LegacySavedTab.swift */; };
-		63316B0D2C69FFCC00349542 /* BrowserViewController+WebPageSummarySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316B0C2C69FFCC00349542 /* BrowserViewController+WebPageSummarySource.swift */; };
 		63316AFD2C692E4200349542 /* WalletDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316AFA2C692E4200349542 /* WalletDataSource.swift */; };
 		63316AFE2C692E4200349542 /* KeystoreManager+Dedicated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316AFB2C692E4200349542 /* KeystoreManager+Dedicated.swift */; };
 		63316AFF2C692E4200349542 /* Web3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316AFC2C692E4200349542 /* Web3Service.swift */; };
 		63316B022C692E4900349542 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316B002C692E4800349542 /* WalletView.swift */; };
 		63316B032C692E4900349542 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316B012C692E4900349542 /* WalletViewModel.swift */; };
+		63316B0D2C69FFCC00349542 /* BrowserViewController+WebPageSummarySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316B0C2C69FFCC00349542 /* BrowserViewController+WebPageSummarySource.swift */; };
 		6341CEDE2C5E7CEF0046740B /* SummarizeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341CEDD2C5E7CEF0046740B /* SummarizeCoordinator.swift */; };
 		6341CEE32C5E7D200046740B /* SummarizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341CEE22C5E7D200046740B /* SummarizeView.swift */; };
 		6341CEE52C5FEA680046740B /* SummarizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341CEE42C5FEA680046740B /* SummarizeViewModel.swift */; };
@@ -5941,12 +5941,12 @@
 		62DF49B9976D5863CADF6EAA /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Menu.strings; sourceTree = "<group>"; };
 		63094229AA6EC744599B77A4 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/ClearPrivateData.strings; sourceTree = "<group>"; };
 		63306D3821103EAE00F25400 /* LegacySavedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySavedTab.swift; sourceTree = "<group>"; };
-		63316B0C2C69FFCC00349542 /* BrowserViewController+WebPageSummarySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+WebPageSummarySource.swift"; sourceTree = "<group>"; };
 		63316AFA2C692E4200349542 /* WalletDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletDataSource.swift; sourceTree = "<group>"; };
 		63316AFB2C692E4200349542 /* KeystoreManager+Dedicated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeystoreManager+Dedicated.swift"; sourceTree = "<group>"; };
 		63316AFC2C692E4200349542 /* Web3Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web3Service.swift; sourceTree = "<group>"; };
 		63316B002C692E4800349542 /* WalletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		63316B012C692E4900349542 /* WalletViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
+		63316B0C2C69FFCC00349542 /* BrowserViewController+WebPageSummarySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+WebPageSummarySource.swift"; sourceTree = "<group>"; };
 		634148899F41CAA3BCF71E8B /* or */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = or; path = or.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6341CEDD2C5E7CEF0046740B /* SummarizeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeCoordinator.swift; sourceTree = "<group>"; };
 		6341CEE22C5E7D200046740B /* SummarizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeView.swift; sourceTree = "<group>"; };
@@ -9798,6 +9798,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		63316B102C6A04F100349542 /* TabContentsScripts */ = {
+			isa = PBXGroup;
+			children = (
+				63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */,
+			);
+			path = TabContentsScripts;
+			sourceTree = "<group>";
+		};
 		6341CECF2C5C0FF50046740B /* TakeHomeTask */ = {
 			isa = PBXGroup;
 			children = (
@@ -9813,7 +9821,6 @@
 			isa = PBXGroup;
 			children = (
 				63316B0A2C69FF9700349542 /* BrowserViewController */,
-				63DE1EC92C63AF91009807DB /* WebView */,
 				6341CEDF2C5E7CFE0046740B /* Frontend */,
 				6341CEDC2C5E7CDF0046740B /* Coordinators */,
 			);
@@ -9838,6 +9845,7 @@
 		6341CEDF2C5E7CFE0046740B /* Frontend */ = {
 			isa = PBXGroup;
 			children = (
+				63316B102C6A04F100349542 /* TabContentsScripts */,
 				6341CEE22C5E7D200046740B /* SummarizeView.swift */,
 				6341CEE42C5FEA680046740B /* SummarizeViewModel.swift */,
 			);
@@ -9899,22 +9907,6 @@
 				63316AFC2C692E4200349542 /* Web3Service.swift */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		63DE1EC92C63AF91009807DB /* WebView */ = {
-			isa = PBXGroup;
-			children = (
-				63DE1ECA2C63AF99009807DB /* Scripts */,
-			);
-			path = WebView;
-			sourceTree = "<group>";
-		};
-		63DE1ECA2C63AF99009807DB /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */,
-			);
-			path = Scripts;
 			sourceTree = "<group>";
 		};
 		63DE1ECD2C63D054009807DB /* WindowAI */ = {
