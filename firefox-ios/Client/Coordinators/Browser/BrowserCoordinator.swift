@@ -26,6 +26,7 @@ class BrowserCoordinator: BaseCoordinator,
                           TabTrayCoordinatorDelegate,
                           PrivateHomepageDelegate,
                           WindowEventCoordinator {
+    
     var browserViewController: BrowserViewController
     var webviewController: WebviewViewController?
     var homepageViewController: HomepageViewController?
@@ -738,13 +739,24 @@ class BrowserCoordinator: BaseCoordinator,
     func showSummarizeView(content: String) {
         let summarizeCoordinator = SummarizeCoordinator(
             router: router,
-            profile: profile,
             currentWebPageContent: content
         )
 
         add(child: summarizeCoordinator)
 
         summarizeCoordinator.showSummarizeView()
+    }
+
+    // MARK: - Wallet
+    @MainActor
+    func showWallet(callback: @escaping (URL?) -> Void) {
+        let coordinator = WalletCoordinator(
+            router: router
+        )
+
+        add(child: coordinator)
+
+        coordinator.showWalletView(callback: callback)
     }
 
     // MARK: - ParentCoordinatorDelegate

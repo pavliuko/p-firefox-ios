@@ -17,6 +17,7 @@ protocol TabToolbarProtocol: AnyObject {
     var backButton: ToolbarButton { get }
     var multiStateButton: ToolbarButton { get }
     var summarizeButton: ToolbarButton { get }
+    var walletButton: ToolbarButton { get }
     var actionButtons: [ThemeApplicable & UIButton] { get }
 
     func updateBackStatus(_ canGoBack: Bool)
@@ -44,6 +45,7 @@ protocol TabToolbarDelegate: AnyObject {
     func tabToolbarDidPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressAddNewTab(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressSummarize(_ tabToolbar: TabToolbarProtocol, button: UIButton)
+    func tabToolbarDidPressWallet(_ tabToolbar: TabToolbarProtocol, button: UIButton)
 }
 
 enum MiddleButtonState {
@@ -176,6 +178,11 @@ open class TabToolbarHelper: NSObject {
         toolbar.summarizeButton.addTarget(self, action: #selector(didClickSummarize), for: .touchUpInside)
         toolbar.summarizeButton.showsLargeContentViewer = true
 
+        let walletButtonImage = UIImage(systemName: "dollarsign.circle")
+        toolbar.walletButton.setImage(walletButtonImage, for: .normal)
+        toolbar.walletButton.addTarget(self, action: #selector(didClickWallet), for: .touchUpInside)
+        toolbar.walletButton.showsLargeContentViewer = true
+
         // The default long press duration is 0.5.  Here we extend it if
         // UILargeContentViewInteraction is enabled to allow the large content
         // viewer time to display the content
@@ -209,11 +216,15 @@ open class TabToolbarHelper: NSObject {
     }
 
     func didClickTabs() {
-        toolbar.tabToolbarDelegate?.tabToolbarDidPressTabs(toolbar, button: toolbar.summarizeButton)
+        toolbar.tabToolbarDelegate?.tabToolbarDidPressTabs(toolbar, button: toolbar.tabsButton)
     }
 
     func didClickSummarize() {
-        toolbar.tabToolbarDelegate?.tabToolbarDidPressSummarize(toolbar, button: toolbar.tabsButton)
+        toolbar.tabToolbarDelegate?.tabToolbarDidPressSummarize(toolbar, button: toolbar.summarizeButton)
+    }
+
+    func didClickWallet() {
+        toolbar.tabToolbarDelegate?.tabToolbarDidPressWallet(toolbar, button: toolbar.walletButton)
     }
 
     func didLongPressTabs(_ recognizer: UILongPressGestureRecognizer) {

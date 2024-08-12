@@ -177,6 +177,12 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         }
     }
 
+    func tabToolbarDidPressWallet(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
+        navigationHandler?.showWallet { [weak self] url in
+            self?.openURLInNewTab(url)
+        }
+    }
+
     func getTabToolbarLongPressActionsForModeSwitching() -> [PhotonRowActions] {
         guard let selectedTab = tabManager.selectedTab else { return [] }
         let count = selectedTab.isPrivate ? tabManager.normalTabs.count : tabManager.privateTabs

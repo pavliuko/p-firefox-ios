@@ -539,6 +539,11 @@
 		60CE80C12667780D004026C7 /* CredentialListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE80C02667780C004026C7 /* CredentialListPresenter.swift */; };
 		60D71AEC26AAF45E00355588 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D71AEB26AAF45E00355588 /* UIColorExtension.swift */; };
 		63306D3921103EAE00F25400 /* LegacySavedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63306D3821103EAE00F25400 /* LegacySavedTab.swift */; };
+		63316AFD2C692E4200349542 /* WalletDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316AFA2C692E4200349542 /* WalletDataSource.swift */; };
+		63316AFE2C692E4200349542 /* KeystoreManager+Dedicated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316AFB2C692E4200349542 /* KeystoreManager+Dedicated.swift */; };
+		63316AFF2C692E4200349542 /* Web3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316AFC2C692E4200349542 /* Web3Service.swift */; };
+		63316B022C692E4900349542 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316B002C692E4800349542 /* WalletView.swift */; };
+		63316B032C692E4900349542 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316B012C692E4900349542 /* WalletViewModel.swift */; };
 		63316B0D2C69FFCC00349542 /* BrowserViewController+WebPageSummarySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63316B0C2C69FFCC00349542 /* BrowserViewController+WebPageSummarySource.swift */; };
 		6341CEDE2C5E7CEF0046740B /* SummarizeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341CEDD2C5E7CEF0046740B /* SummarizeCoordinator.swift */; };
 		6341CEE32C5E7D200046740B /* SummarizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341CEE22C5E7D200046740B /* SummarizeView.swift */; };
@@ -546,6 +551,11 @@
 		6341CEE82C5FEF570046740B /* LLMAgents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341CEE72C5FEF560046740B /* LLMAgents.swift */; };
 		6341CEEB2C5FF07C0046740B /* LLM in Frameworks */ = {isa = PBXBuildFile; productRef = 6341CEEA2C5FF07C0046740B /* LLM */; };
 		634D63C62C67AAEC00EEA661 /* WindowAIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63C52C67AAEC00EEA661 /* WindowAIAPI.swift */; };
+		634D63D02C67CC0F00EEA661 /* WalletCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63CF2C67CC0F00EEA661 /* WalletCoordinator.swift */; };
+		634D63D32C67D32F00EEA661 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 634D63D22C67D32F00EEA661 /* web3swift */; };
+		634D63E02C67EA1300EEA661 /* WalletsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63DE2C67EA1300EEA661 /* WalletsHomeView.swift */; };
+		634D63E12C67EA1300EEA661 /* WalletsHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63DF2C67EA1300EEA661 /* WalletsHomeViewModel.swift */; };
+		634D63E72C67EDE300EEA661 /* CreateWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D63E62C67EDE200EEA661 /* CreateWalletView.swift */; };
 		63DE1ECC2C63AFD2009807DB /* HTMLContentOverviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */; };
 		63DE1ECF2C63D068009807DB /* WindowAIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE1ECE2C63D068009807DB /* WindowAIHelper.swift */; };
 		6669B5E2211418A200CA117B /* WebsiteDataSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6669B5E1211418A200CA117B /* WebsiteDataSearchResultsViewController.swift */; };
@@ -5931,6 +5941,11 @@
 		62DF49B9976D5863CADF6EAA /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Menu.strings; sourceTree = "<group>"; };
 		63094229AA6EC744599B77A4 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/ClearPrivateData.strings; sourceTree = "<group>"; };
 		63306D3821103EAE00F25400 /* LegacySavedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySavedTab.swift; sourceTree = "<group>"; };
+		63316AFA2C692E4200349542 /* WalletDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletDataSource.swift; sourceTree = "<group>"; };
+		63316AFB2C692E4200349542 /* KeystoreManager+Dedicated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeystoreManager+Dedicated.swift"; sourceTree = "<group>"; };
+		63316AFC2C692E4200349542 /* Web3Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web3Service.swift; sourceTree = "<group>"; };
+		63316B002C692E4800349542 /* WalletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		63316B012C692E4900349542 /* WalletViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
 		63316B0C2C69FFCC00349542 /* BrowserViewController+WebPageSummarySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+WebPageSummarySource.swift"; sourceTree = "<group>"; };
 		634148899F41CAA3BCF71E8B /* or */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = or; path = or.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6341CEDD2C5E7CEF0046740B /* SummarizeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeCoordinator.swift; sourceTree = "<group>"; };
@@ -5938,6 +5953,10 @@
 		6341CEE42C5FEA680046740B /* SummarizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeViewModel.swift; sourceTree = "<group>"; };
 		6341CEE72C5FEF560046740B /* LLMAgents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMAgents.swift; sourceTree = "<group>"; };
 		634D63C52C67AAEC00EEA661 /* WindowAIAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAIAPI.swift; sourceTree = "<group>"; };
+		634D63CF2C67CC0F00EEA661 /* WalletCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinator.swift; sourceTree = "<group>"; };
+		634D63DE2C67EA1300EEA661 /* WalletsHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletsHomeView.swift; sourceTree = "<group>"; };
+		634D63DF2C67EA1300EEA661 /* WalletsHomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletsHomeViewModel.swift; sourceTree = "<group>"; };
+		634D63E62C67EDE200EEA661 /* CreateWalletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletView.swift; sourceTree = "<group>"; };
 		63B04BE882C41584580E0E59 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = "fa.lproj/Default Browser.strings"; sourceTree = "<group>"; };
 		63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLContentOverviewProvider.swift; sourceTree = "<group>"; };
 		63DE1ECE2C63D068009807DB /* WindowAIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAIHelper.swift; sourceTree = "<group>"; };
@@ -8578,6 +8597,7 @@
 				E17798A02BD8043800F6F0EB /* ToolbarKit in Frameworks */,
 				E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */,
 				E4B3348A1BBF23F9004E2BFF /* AdSupport.framework in Frameworks */,
+				634D63D32C67D32F00EEA661 /* web3swift in Frameworks */,
 				8AB30EC82B6C038600BD9A9B /* Lottie in Frameworks */,
 				5A871488292EA1440039A5BD /* Fuzi in Frameworks */,
 				432BD0242790EBD000A0F3C3 /* Adjust in Frameworks */,
@@ -9778,9 +9798,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		63316B102C6A04F100349542 /* TabContentsScripts */ = {
+			isa = PBXGroup;
+			children = (
+				63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */,
+			);
+			path = TabContentsScripts;
+			sourceTree = "<group>";
+		};
 		6341CECF2C5C0FF50046740B /* TakeHomeTask */ = {
 			isa = PBXGroup;
 			children = (
+				634D63C82C67C92F00EEA661 /* Wallet */,
 				63DE1ECD2C63D054009807DB /* WindowAI */,
 				6341CEE62C5FEF310046740B /* LLM */,
 				6341CED92C5E7CB70046740B /* Summarize */,
@@ -9792,7 +9821,6 @@
 			isa = PBXGroup;
 			children = (
 				63316B0A2C69FF9700349542 /* BrowserViewController */,
-				63DE1EC92C63AF91009807DB /* WebView */,
 				6341CEDF2C5E7CFE0046740B /* Frontend */,
 				6341CEDC2C5E7CDF0046740B /* Coordinators */,
 			);
@@ -9817,6 +9845,7 @@
 		6341CEDF2C5E7CFE0046740B /* Frontend */ = {
 			isa = PBXGroup;
 			children = (
+				63316B102C6A04F100349542 /* TabContentsScripts */,
 				6341CEE22C5E7D200046740B /* SummarizeView.swift */,
 				6341CEE42C5FEA680046740B /* SummarizeViewModel.swift */,
 			);
@@ -9840,20 +9869,44 @@
 			path = TabContentsScripts;
 			sourceTree = "<group>";
 		};
-		63DE1EC92C63AF91009807DB /* WebView */ = {
+		634D63C82C67C92F00EEA661 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				63DE1ECA2C63AF99009807DB /* Scripts */,
+				634D63EB2C67F97800EEA661 /* Domain */,
+				634D63CE2C67CBFF00EEA661 /* Coordinators */,
+				634D63C92C67C94800EEA661 /* Frontend */,
 			);
-			path = WebView;
+			path = Wallet;
 			sourceTree = "<group>";
 		};
-		63DE1ECA2C63AF99009807DB /* Scripts */ = {
+		634D63C92C67C94800EEA661 /* Frontend */ = {
 			isa = PBXGroup;
 			children = (
-				63DE1ECB2C63AFD2009807DB /* HTMLContentOverviewProvider.swift */,
+				63316B002C692E4800349542 /* WalletView.swift */,
+				63316B012C692E4900349542 /* WalletViewModel.swift */,
+				634D63E62C67EDE200EEA661 /* CreateWalletView.swift */,
+				634D63DE2C67EA1300EEA661 /* WalletsHomeView.swift */,
+				634D63DF2C67EA1300EEA661 /* WalletsHomeViewModel.swift */,
 			);
-			path = Scripts;
+			path = Frontend;
+			sourceTree = "<group>";
+		};
+		634D63CE2C67CBFF00EEA661 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				634D63CF2C67CC0F00EEA661 /* WalletCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		634D63EB2C67F97800EEA661 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				63316AFB2C692E4200349542 /* KeystoreManager+Dedicated.swift */,
+				63316AFA2C692E4200349542 /* WalletDataSource.swift */,
+				63316AFC2C692E4200349542 /* Web3Service.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		63DE1ECD2C63D054009807DB /* WindowAI */ = {
@@ -13384,6 +13437,7 @@
 				AB2AC6622BCFD0A200022AAB /* X509 */,
 				E177989F2BD8043800F6F0EB /* ToolbarKit */,
 				6341CEEA2C5FF07C0046740B /* LLM */,
+				634D63D22C67D32F00EEA661 /* web3swift */,
 			);
 			productName = Client;
 			productReference = F84B21BE1A090F8100AAB793 /* Client.app */;
@@ -13705,6 +13759,7 @@
 				8AB30EC62B6C038600BD9A9B /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				AB2AC6612BCFD0A200022AAB /* XCRemoteSwiftPackageReference "swift-certificates" */,
 				6341CEE92C5FF07C0046740B /* XCRemoteSwiftPackageReference "LLM" */,
+				634D63D12C67D32F00EEA661 /* XCRemoteSwiftPackageReference "web3swift" */,
 			);
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
 			projectDirPath = "";
@@ -14693,6 +14748,7 @@
 				8C6F94652A972EB300415FF6 /* FakespotAdjustRatingView.swift in Sources */,
 				8A3EF7FD2A2FCFAC00796E3A /* AppReviewPromptSetting.swift in Sources */,
 				D3B6923F1B9F9A58004B87A4 /* FindInPageHelper.swift in Sources */,
+				634D63E12C67EA1300EEA661 /* WalletsHomeViewModel.swift in Sources */,
 				E1FE133329C22782002A65FF /* BackgroundNotificationSurfaceUtility.swift in Sources */,
 				8AE80BBC2891C20D00BC12EA /* JumpBackInList.swift in Sources */,
 				8A395552299AF83400B2AFBB /* UIControl+Extension.swift in Sources */,
@@ -14779,6 +14835,7 @@
 				967A028E28FA026F003C35E3 /* SceneDelegate.swift in Sources */,
 				C8B07A4128199500000AFCE7 /* NimbusFlaggableFeature.swift in Sources */,
 				0B62EFD21AD63CD100ACB9CD /* Clearables.swift in Sources */,
+				63316B022C692E4900349542 /* WalletView.swift in Sources */,
 				8AAEBA062BF51141000C02B5 /* MicrosurveyMiddleware.swift in Sources */,
 				431C0CA925C890E500395CE4 /* DefaultBrowserOnboardingViewModel.swift in Sources */,
 				DFACBF81277B916B003D5F41 /* ConfigurableGradientView.swift in Sources */,
@@ -14806,6 +14863,7 @@
 				C8B509E3293FA39900AC013C /* AppVersionUpdateCheckerProtocol.swift in Sources */,
 				E1AFBAF9292EA0330065E35E /* SendToDeviceHelper.swift in Sources */,
 				E17798982BD6B44B00F6F0EB /* AddressToolbarContainer.swift in Sources */,
+				63316AFD2C692E4200349542 /* WalletDataSource.swift in Sources */,
 				21D151262AFC28960062D891 /* TabManagerMiddleware.swift in Sources */,
 				C84266752728462900382274 /* AccessibilityIdentifiers.swift in Sources */,
 				C8BD87622A0C257C00CD803A /* OnboardingCardInfoModelProtocol.swift in Sources */,
@@ -14835,6 +14893,7 @@
 				210E0EBA298D9D6400BB4F33 /* OpenSearchEngine.swift in Sources */,
 				FA9293D41D6580E100AC8D33 /* QRCodeViewController.swift in Sources */,
 				8AAEBA082BF52708000C02B5 /* MicrosurveyCoordinator.swift in Sources */,
+				634D63E02C67EA1300EEA661 /* WalletsHomeView.swift in Sources */,
 				5A679E4B2B239FAE004F2B0D /* TabPeekViewController.swift in Sources */,
 				E18CE8DC2BDA3FA600EE2BCD /* NavigationToolbarContainerModel.swift in Sources */,
 				2178A6A0291454B5002EC290 /* ReaderModeThemeButton.swift in Sources */,
@@ -14900,6 +14959,7 @@
 				74E36D781B71323500D69DA1 /* SettingsContentViewController.swift in Sources */,
 				EBB8950C21939E4100EB91A0 /* FirefoxTabContentBlocker.swift in Sources */,
 				21618A632A422A3900A5189E /* ThemeMiddleware.swift in Sources */,
+				634D63E72C67EDE300EEA661 /* CreateWalletView.swift in Sources */,
 				219A0FDB2ACCCFFC009A6D1A /* InactiveTabsSectionManager.swift in Sources */,
 				B2981F8A2B71AD7A00132C1B /* AutofillAccessoryViewButtonItem.swift in Sources */,
 				211F00AC27F4D918001D9189 /* HistoryPanel+Search.swift in Sources */,
@@ -14988,6 +15048,7 @@
 				C8163851268A0899004C7160 /* AddCredentialViewController.swift in Sources */,
 				8A19ACB22A3290AE001C2147 /* ClearPrivateDataSetting.swift in Sources */,
 				8A9B87AF2C1B39EA0042B894 /* SearchListSection.swift in Sources */,
+				63316AFE2C692E4200349542 /* KeystoreManager+Dedicated.swift in Sources */,
 				CA520E7A24913C1B00CCAB48 /* PasswordManagerViewModel.swift in Sources */,
 				8AE1E1CD27B191110024C45E /* SearchBarSettingsViewModel.swift in Sources */,
 				43D16B8529831EA5009F8279 /* Style.swift in Sources */,
@@ -15161,6 +15222,7 @@
 				21618A612A4201E500A5189E /* ThemeSettingsController.swift in Sources */,
 				21357F2D293FDB60004BF9FD /* LegacyRemoteTabsErrorDataSource.swift in Sources */,
 				D34DC8531A16C40C00D49B7B /* Profile.swift in Sources */,
+				634D63D02C67CC0F00EEA661 /* WalletCoordinator.swift in Sources */,
 				DFACDFAA274D489B00A94EEC /* HistoryHighlightsViewModel.swift in Sources */,
 				C84655FF2887A06B00861B4A /* WallpaperFilePathProvider.swift in Sources */,
 				8A1E93EA2A3CDC6100DD540A /* BaseCoordinator.swift in Sources */,
@@ -15301,6 +15363,7 @@
 				E134D5802B31FF3100C6B17B /* FakespotAdLinkButton.swift in Sources */,
 				8AE0BF4F2819B10E00F33EC4 /* TopSitesSettingsViewController.swift in Sources */,
 				8A8DDEBF276259A900E7B97A /* RatingPromptManager.swift in Sources */,
+				63316B032C692E4900349542 /* WalletViewModel.swift in Sources */,
 				8AB8571D27D929350075C173 /* TopSitesViewModel.swift in Sources */,
 				E177989A2BD7D44200F6F0EB /* ToolbarState.swift in Sources */,
 				8A93F85E29D36DA9004159D9 /* Coordinator.swift in Sources */,
@@ -15353,6 +15416,7 @@
 				43162A2F2492DB7800F91658 /* EmptyPrivateTabsView.swift in Sources */,
 				E1380B8D2AEA897C00630AFA /* SidebarEnabledView.swift in Sources */,
 				D0625C98208E87F10081F3B2 /* DownloadQueue.swift in Sources */,
+				63316AFF2C692E4200349542 /* Web3Service.swift in Sources */,
 				9636D92E27F9E5D900771F5E /* GleanPlumbMessage.swift in Sources */,
 				8D8251811F4DE67F00780643 /* AdvancedAccountSettingViewController.swift in Sources */,
 				966E4B2629F2D4AC00299B8D /* AccessoryViewProvider.swift in Sources */,
@@ -21719,6 +21783,7 @@
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				EXCLUDED_SOURCE_FILE_NAMES = "Client/Nimbus/TestData/*";
 				INFOPLIST_FILE = Client/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -21977,6 +22042,7 @@
 					"Client/Nimbus/TestData/*",
 				);
 				INFOPLIST_FILE = Client/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -22236,6 +22302,7 @@
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				EXCLUDED_SOURCE_FILE_NAMES = "Client/Nimbus/TestData/*";
 				INFOPLIST_FILE = Client/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -22730,6 +22797,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -23098,6 +23166,14 @@
 				kind = branch;
 			};
 		};
+		634D63D12C67D32F00EEA661 /* XCRemoteSwiftPackageReference "web3swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/web3swift-team/web3swift?tab=readme-ov-file#spm";
+			requirement = {
+				kind = exactVersion;
+				version = 3.2.1;
+			};
+		};
 		8AB30EC62B6C038600BD9A9B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -23258,6 +23334,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6341CEE92C5FF07C0046740B /* XCRemoteSwiftPackageReference "LLM" */;
 			productName = LLM;
+		};
+		634D63D22C67D32F00EEA661 /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 634D63D12C67D32F00EEA661 /* XCRemoteSwiftPackageReference "web3swift" */;
+			productName = web3swift;
 		};
 		781C19CE2A780BEC0000DF46 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
