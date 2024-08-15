@@ -20,14 +20,10 @@ struct WalletView: View {
     var body: some View {
         ZStack {
             List {
-                if !vm.state.sendETHRequest.isStarted {
-                    walletSection
-                    balanceSection
-                    etherscanSection
-                    actionsSection
-                } else {
-                    sendETHSections
-                }
+                walletSection
+                detailsSection
+                etherscanSection
+                actionOrPasswordSection
             }
             .listStyle(InsetGroupedListStyle())
 
@@ -52,42 +48,50 @@ struct WalletView: View {
     // MARK: - Sections
 
     private var walletSection: some View {
-        Section(header: Text("Wallet")) {
+        Section(
+            header: Text(vm.state.sendETHRequest.isStarted ? "From" : "Wallet")
+        ) {
             walletInfoRow
+            if vm.state.sendETHRequest.isStarted {
+                balanceRow
+            }
         }
     }
 
-    private var balanceSection: some View {
-        Section(header: Text("Balance")) {
-            balanceRow
+    private var detailsSection: some View {
+        Section(
+            header: Text(vm.state.sendETHRequest.isStarted ? "To" : "Balance")
+        ) {
+            if vm.state.sendETHRequest.isStarted {
+                recipientRow
+                amountRow
+            } else {
+                balanceRow
+            }
         }
     }
 
     private var etherscanSection: some View {
-        Section(header: Text("View on Etherscan")) {
-            etherscanRow
-        }
-    }
-
-    private var actionsSection: some View {
-        Section(header: Text("Actions")) {
-            sendETHRow
-        }
-    }
-
-    private var sendETHSections: some View {
         Group {
-            Section(header: Text("From")) {
-                walletInfoRow
-                balanceRow
+            if !vm.state.sendETHRequest.isStarted {
+                Section(
+                    header: Text("View on Etherscan")
+                ) {
+                    etherscanRow
+                }
             }
-            Section(header: Text("To")) {
-                recipientRow
-                amountRow
-            }
+        }
+    }
 
-            Section(header: Text("Password")) {
+    private var actionOrPasswordSection: some View {
+        Section(
+            header: Text(vm.state.sendETHRequest
+                .isStarted ? "Password" : "Actions")
+        ) {
+            if vm.state.sendETHRequest.isStarted {
                 passwordRow
+            } else {
+                sendETHRow
             }
         }
     }
